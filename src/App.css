@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fce4ec;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #333;
+}
+
+.workspace-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #a1c4fd 0%, #ffb6c1 100%);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.header-text {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.main-title {
+  font-size: 2.2rem;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  text-shadow: 0 2px 10px rgba(255, 182, 193, 0.8);
+}
+
+.main-subtitle {
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 500;
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* Layout Berjajar */
+.workspace-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  max-width: 850px;
+}
+
+@media (min-width: 768px) {
+  .workspace-layout {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+  }
+}
+
+/* --- MACBOOK FLAT DESIGN --- */
+.macbook-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.macbook-wrapper:hover {
+  transform: translateY(-4px);
+}
+
+.macbook-wrapper.turned-on {
+  cursor: default;
+}
+
+.macbook-screen {
+  background: #111;
+  width: 100%;
+  height: 240px;
+  border-radius: 16px 16px 0 0;
+  border: 3px solid #b0bec5;
+  border-bottom: 8px solid #b0bec5;
+  position: relative;
+  box-sizing: border-box;
+  padding: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.camera-dot {
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  background: #333;
+  border-radius: 50%;
+}
+
+.display-area {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.screen-off {
+  width: 100%;
+  height: 100%;
+  background: #0a0a0a;
+}
+
+.screen-on {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  animation: turnOn 0.5s ease-out forwards;
+}
+
+@keyframes turnOn {
+  0% { opacity: 0; filter: brightness(0); }
+  100% { opacity: 1; filter: brightness(1); }
+}
+
+.screen-logo {
+  font-size: 2.2rem;
+  color: #fff;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.screen-status {
+  font-size: 0.85rem;
+  color: #fff;
+  font-weight: 600;
+  background: rgba(0,0,0,0.2);
+  padding: 4px 10px;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+}
+
+.macbook-base {
+  width: 110%;
+  height: 14px;
+  background: linear-gradient(to bottom, #d9e1e8, #b0bec5);
+  margin-left: -5%;
+  border-radius: 0 0 8px 8px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+}
+
+.base-top-groove {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 2px;
+  background: #90a4ae;
+}
+
+.touchpad-dent {
+  width: 60px;
+  height: 5px;
+  background: #90a4ae;
+  border-radius: 0 0 4px 4px;
+}
+
+.macbook-bottom-edge {
+  width: 110%;
+  margin-left: -5%;
+  height: 3px;
+  background: #78909c;
+  border-radius: 0 0 8px 8px;
+}
+
+/* --- KARTU FORM LOGIN (SEMBUNYI SEBELUM DIKLIK) --- */
+.login-card-wrapper {
+  width: 100%;
+  max-width: 360px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.login-card-wrapper.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.login-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  text-align: left;
+}
+
+.login-card h2 {
+  margin: 0 0 4px 0;
+  color: #ff4b82;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+}
+
+.card-desc {
+  font-size: 0.85rem;
+  color: #5b7b9c;
+  margin: 0 0 20px 0;
+  font-weight: 500;
+}
+
+.main-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-group label {
+  font-size: 0.8rem;
+  color: #5b7b9c;
+  font-weight: 600;
+}
+
+.input-group input {
+  padding: 12px 14px;
+  border: 2px solid #e1e8ed;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  outline: none;
+  background: #ffffff;
+  transition: all 0.3s;
+  color: #333;
+}
+
+.input-group input:focus {
+  border-color: #ffb6c1;
+  box-shadow: 0 0 0 4px rgba(255, 182, 193, 0.25);
+}
+
+.login-btn {
+  margin-top: 5px;
+  background: linear-gradient(135deg, #a1c4fd, #ffb6c1);
+  color: #4a6fa5;
+  border: none;
+  padding: 13px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(161, 196, 253, 0.4);
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(161, 196, 253, 0.6);
+  filter: brightness(1.05);
+}
+
+.login-btn:active {
+  transform: translateY(0);
+}
